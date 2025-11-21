@@ -11,6 +11,7 @@ async function initAddTask() {
     renderCategory();
     await renderContacts()
     giveContactListId();
+    listUploadetFiles();
 
     // if (localStorage.getItem('boardColumnToAddTask')) {
     //     boardColumnToAddTask = localStorage.getItem('boardColumnToAddTask');
@@ -29,6 +30,18 @@ function media() {
     } else {
         moveContent("amogus");
     }
+}
+
+function listUploadetFiles() {
+    document.getElementById("fileinput").addEventListener("change", (event) => {
+        for (const file of event.target.files) {
+            fileList.innerHTML += /*html*/`
+        <label for="contact-checkbox${i}" class="addtask-item contact-list paddings pos-re" onclick="checkboxSwitch(id)">${contact}
+            <input id="contact-checkbox${i}" type="checkbox">
+		</label>
+        `;
+        }
+    });
 }
 
 function moveContent(destination) {
@@ -398,9 +411,7 @@ function giveContactListId(params) {
 }
 
 
-function checkboxSwitch(id) {
-
-}
+function checkboxSwitch(id) {}
 
 
 /*--------------------------------------------------
